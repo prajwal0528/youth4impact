@@ -1,0 +1,44 @@
+.contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; }
+
+.contact-form-wrapper h2 { color: var(--primary-blue); font-size: 1.8rem; margin-bottom: 8px; }
+.contact-form-wrapper > p { color: var(--text-light); margin-bottom: 30px; }
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+
+.form-group label { display: block; font-weight: 500; color: var(--text-dark); margin-bottom: 6px; font-size: 0.9rem; }
+.form-group input, .form-group textarea { width: 100%; padding: 14px 18px; border: 2px solid #e8ecef; border-radius: 10px; font-size: 0.95rem; font-family: 'Inter', sans-serif; transition: var(--transition); background: var(--white); }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.1); }
+.form-group textarea { resize: vertical; }
+
+.contact-info-card { background: var(--white); padding: 35px; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 25px; }
+.contact-info-card h3 { color: var(--primary-blue); font-size: 1.2rem; margin-bottom: 25px; }
+.contact-item { display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start; }
+.contact-icon { color: var(--primary-green); font-size: 1.2rem; margin-top: 3px; min-width: 20px; }
+.contact-item span { font-weight: 600; color: var(--text-dark); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.contact-item p { color: var(--text-light); font-size: 0.95rem; margin-top: 3px; }
+
+.map-placeholder { background: linear-gradient(135deg, #e8f4fd, #f0f9f4); border-radius: var(--radius); height: 200px; display: flex; align-items: center; justify-content: center; border: 2px dashed rgba(26, 82, 118, 0.2); }
+.map-inner { text-align: center; }
+.map-pin { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 10px; }
+.map-inner p { font-weight: 600; color: var(--text-dark); }
+.map-inner span { font-size: 0.8rem; color: var(--text-light); }
+
+.donation-section { background: var(--bg-section); }
+.donation-card { text-align: center; max-width: 650px; margin: 0 auto; background: var(--white); padding: 50px 40px; border-radius: var(--radius); box-shadow: var(--shadow); }
+.donation-icon { width: 70px; height: 70px; background: linear-gradient(135deg, #e74c3c, #c0392b); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.8rem; color: white; }
+.donation-card h2 { color: var(--primary-blue); margin-bottom: 15px; }
+.donation-card p { color: var(--text-light); line-height: 1.7; margin-bottom: 10px; }
+.donation-note { font-weight: 600; color: var(--primary-green) !important; margin-bottom: 25px !important; }
+
+.registration-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.registration-card { background: var(--white); padding: 40px 35px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; transition: var(--transition); }
+.registration-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+.reg-icon { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 18px; }
+.registration-card h3 { color: var(--primary-blue); margin-bottom: 12px; }
+.registration-card p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 20px; }
+.registration-card ul { text-align: left; margin-bottom: 25px; padding-left: 20px; }
+.registration-card ul li { position: relative; padding-left: 15px; margin-bottom: 8px; color: var(--text-dark); font-size: 0.9rem; }
+.registration-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--primary-green); font-weight: 700; }
+
+@media (max-width: 768px) {
+  .contact-grid, .registration-grid { grid-template-columns: 1fr; }
+}
