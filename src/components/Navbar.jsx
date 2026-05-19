@@ -24,7 +24,11 @@ function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
         <Link to="/" className="navbar-brand">
-          <div className="logo-placeholder">Y4I</div>
+          <img
+            src="https://asset.youth4impact.senoraic.com/logo_transparent.png"
+            alt="Youth 4 Impact Trust Logo"
+            className="navbar-logo"
+          />
           <div className="brand-text">
             <span className="brand-name">Youth 4 Impact Trust</span>
             <span className="brand-tagline">Empowering Youth, Driving Change</span>

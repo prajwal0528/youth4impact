@@ -18,17 +18,11 @@
   margin-bottom: 15px;
 }
 
-.logo-placeholder-sm {
-  width: 38px;
-  height: 38px;
-  background: linear-gradient(135deg, var(--light-blue), var(--primary-green));
+.footer-logo {
+  height: 42px;
+  width: 42px;
+  object-fit: cover;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 800;
-  font-size: 0.7rem;
 }
 
 .footer-brand h3 {

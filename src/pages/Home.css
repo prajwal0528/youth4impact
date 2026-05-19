@@ -1,3 +1,45 @@
+/* ─────────────────────────────────────────
+   ANIMATIONS
+───────────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.7s ease both;
+}
+
+.fade-in {
+  animation: fadeIn 0.9s ease 0.3s both;
+}
+
+/* Scroll-triggered reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+
 .hero {
   min-height: 100vh;
   display: flex;
@@ -100,6 +142,10 @@
 .hero-card-icon { font-size: 2rem; }
 .hero-card span { font-weight: 600; color: var(--text-dark); }
 
+/* ─────────────────────────────────────────
+   INTRO
+───────────────────────────────────────── */
+
 .intro-content {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -110,19 +156,17 @@
 .intro-text p { color: var(--text-light); margin-bottom: 20px; line-height: 1.8; }
 .intro-text .btn { margin-top: 10px; display: inline-flex; align-items: center; gap: 8px; }
 
-.intro-img-placeholder {
-  background: linear-gradient(135deg, var(--bg-section), #e8f4fd);
+.intro-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   border-radius: var(--radius);
-  height: 350px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed rgba(39, 174, 96, 0.3);
+  box-shadow: var(--shadow);
 }
 
-.intro-img-placeholder span { font-size: 4rem; margin-bottom: 10px; }
-.intro-img-placeholder p { color: var(--text-light); font-weight: 500; }
+/* ─────────────────────────────────────────
+   FOCUS
+───────────────────────────────────────── */
 
 .focus-section { background: var(--bg-section); }
 
@@ -170,6 +214,10 @@
 .focus-card ul { text-align: left; }
 .focus-card ul li { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 0.9rem; color: var(--text-light); }
 
+/* ─────────────────────────────────────────
+   STATS
+───────────────────────────────────────── */
+
 .stats-section { background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); }
 
 .stats-grid {
@@ -181,6 +229,10 @@
 .stat-card { text-align: center; padding: 30px; }
 .stat-card h2 { font-size: 3rem; color: var(--accent-green); margin-bottom: 8px; }
 .stat-card p { color: rgba(255,255,255,0.8); font-size: 1rem; }
+
+/* ─────────────────────────────────────────
+   CTA
+───────────────────────────────────────── */
 
 .cta-section { background: linear-gradient(135deg, var(--primary-green), #1abc9c); }
 
@@ -232,7 +284,6 @@
 .modal-box::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
 .modal-box::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
 
-/* Close button */
 .modal-close {
   position: absolute;
   top: 14px;
@@ -253,7 +304,6 @@
 }
 .modal-close:hover { background: rgba(255,255,255,0.35); }
 
-/* Header */
 .modal-header {
   text-align: center;
   padding: 2.2rem 2rem 1.5rem;
@@ -278,7 +328,6 @@
   margin: 0;
 }
 
-/* Rules list */
 .modal-rules {
   padding: 1.4rem 1.6rem 0.5rem;
   display: flex;
@@ -299,7 +348,6 @@
 
 .modal-rule-item:hover { background: #edf0fc; }
 
-/* Rule 9 highlighted */
 .rule-highlight {
   background: #fffbea !important;
   border-color: #f5c842 !important;
@@ -329,7 +377,6 @@
   line-height: 1.55;
 }
 
-/* Agree checkbox */
 .modal-agree {
   padding: 1rem 1.6rem;
   border-top: 1px solid #eee;
@@ -359,7 +406,6 @@
   line-height: 1.5;
 }
 
-/* Footer */
 .modal-footer {
   padding: 0.8rem 1.6rem 1.8rem;
   display: flex;

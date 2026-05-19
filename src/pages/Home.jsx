@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FaGraduationCap, FaUsers, FaHandsHelping, FaArrowRight, FaCheckCircle, FaTimes, FaDownload, FaFileAlt } from 'react-icons/fa'
 import './Home.css'
@@ -15,6 +15,17 @@ const rules = [
   "A valid ID xerox (Aadhar Card / Voter ID / Passport / Driving Licence) must be attached with the application form.",
 ]
 
+function useReveal() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }),
+      { threshold: 0.15 }
+    )
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+}
+
 function MembershipModal({ onClose }) {
   const [agreed, setAgreed] = useState(false)
 
@@ -25,7 +36,7 @@ function MembershipModal({ onClose }) {
 
         <div className="modal-header">
           <div className="modal-header-icon">📋</div>
-          <h2>Rules &amp; Regulations</h2>
+          <h2>Rules & Regulations</h2>
           <p>Youth 4 Impact Trust — Membership Terms</p>
         </div>
 
@@ -45,7 +56,7 @@ function MembershipModal({ onClose }) {
               checked={agreed}
               onChange={e => setAgreed(e.target.checked)}
             />
-            <span>I have read and agree to all the rules &amp; regulations of Youth 4 Impact Trust.</span>
+            <span>I have read and agree to all the rules & regulations of Youth 4 Impact Trust.</span>
           </label>
         </div>
 
@@ -72,16 +83,18 @@ function MembershipModal({ onClose }) {
 
 function Home() {
   const [showModal, setShowModal] = useState(false)
+  useReveal()
 
   return (
     <div className="home">
       {showModal && <MembershipModal onClose={() => setShowModal(false)} />}
 
+      {/* HERO */}
       <section className="hero">
         <div className="hero-bg"></div>
         <div className="container hero-content">
           <div className="hero-text fade-in-up">
-            <div className="hero-badge">🌟 Registered Trust | Mysore, Karnataka</div>
+            <div className="hero-badge">Registered Trust | Mysore, Karnataka</div>
             <h1>Empowering Youth,<br /><span>Driving Change</span></h1>
             <p>Youth 4 Impact Trust is dedicated to empowering young minds through education, social awareness, and community engagement. Together, we build a better tomorrow.</p>
             <div className="hero-buttons">
@@ -106,32 +119,35 @@ function Home() {
         </div>
       </section>
 
+      {/* INTRO */}
       <section className="section intro-section">
         <div className="container">
-          <h2 className="section-title">Who We Are</h2>
-          <p className="section-subtitle">A youth-driven organization committed to creating lasting social impact</p>
+          <h2 className="section-title reveal">Who We Are</h2>
+          <p className="section-subtitle reveal reveal-delay-1">A youth-driven organization committed to creating lasting social impact</p>
           <div className="intro-content">
-            <div className="intro-text">
+            <div className="intro-text reveal reveal-delay-1">
               <p>Youth 4 Impact Trust is a registered non-profit organization based in Mysore, Karnataka. We believe in the power of youth to transform communities. Our programs focus on bridging the gap between academic learning and real-world experience.</p>
               <p>We work closely with educational institutions, communities, and volunteers to create meaningful opportunities for students and young professionals to contribute to society while developing their skills.</p>
               <Link to="/about" className="btn btn-outline">Learn More About Us <FaArrowRight /></Link>
             </div>
-            <div className="intro-image">
-              <div className="intro-img-placeholder">
-                <span>🌱</span>
-                <p>Growing Together</p>
-              </div>
+            <div className="intro-image reveal reveal-delay-2">
+              <img
+                src="https://asset.youth4impact.senoraic.com/who_we_are.png"
+                alt="Who We Are"
+                className="intro-img"
+              />
             </div>
           </div>
         </div>
       </section>
 
+      {/* FOCUS */}
       <section className="section focus-section">
         <div className="container">
-          <h2 className="section-title">Our Key Focus Areas</h2>
-          <p className="section-subtitle">Three pillars that drive our mission forward</p>
+          <h2 className="section-title reveal">Our Key Focus Areas</h2>
+          <p className="section-subtitle reveal reveal-delay-1">Three pillars that drive our mission forward</p>
           <div className="focus-grid">
-            <div className="focus-card">
+            <div className="focus-card reveal reveal-delay-1">
               <div className="focus-icon"><FaGraduationCap /></div>
               <h3>Education Support</h3>
               <p>Providing guidance, mentorship, and resources to students for academic and personal growth.</p>
@@ -141,7 +157,7 @@ function Home() {
                 <li><FaCheckCircle /> Career Guidance</li>
               </ul>
             </div>
-            <div className="focus-card featured">
+            <div className="focus-card featured reveal reveal-delay-2">
               <div className="focus-icon"><FaUsers /></div>
               <h3>Social Activities</h3>
               <p>Organizing community events, awareness campaigns, and social service programs.</p>
@@ -151,39 +167,28 @@ function Home() {
                 <li><FaCheckCircle /> Cultural Programs</li>
               </ul>
             </div>
-            <div className="focus-card">
+            <div className="focus-card reveal reveal-delay-3">
               <div className="focus-icon"><FaHandsHelping /></div>
               <h3>Youth Empowerment</h3>
               <p>Building leadership skills, confidence, and responsibility among young people.</p>
               <ul>
                 <li><FaCheckCircle /> Leadership Training</li>
                 <li><FaCheckCircle /> Volunteer Programs</li>
-                <li><FaCheckCircle /> Certificates &amp; Recognition</li>
+                <li><FaCheckCircle /> Certificates & Recognition</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
-{/* 
-      <section className="section stats-section">
-        <div className="container">
-          <div className="stats-grid">
-            <div className="stat-card"><h2>500+</h2><p>Students Impacted</p></div>
-            <div className="stat-card"><h2>50+</h2><p>Activities Conducted</p></div>
-            <div className="stat-card"><h2>100+</h2><p>Active Volunteers</p></div>
-            <div className="stat-card"><h2>10+</h2><p>Partner Institutions</p></div>
-          </div>
-        </div>
-      </section>
- */}
+
+      {/* CTA */}
       <section className="section cta-section">
         <div className="container">
-          <div className="cta-content">
+          <div className="cta-content reveal">
             <h2>Ready to Make a Difference?</h2>
             <p>Join Youth 4 Impact Trust and be part of a movement that empowers youth and drives positive change.</p>
             <div className="cta-buttons">
               <button onClick={() => setShowModal(true)} className="btn btn-primary">Become a Member</button>
-              {/* <Link to="/contact" className="btn btn-outline" style={{ borderColor: 'white', color: 'white' }}>Donate Now</Link> */}
             </div>
           </div>
         </div>

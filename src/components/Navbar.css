@@ -27,18 +27,10 @@
   gap: 12px;
 }
 
-.logo-placeholder {
-  width: 50px;
+.navbar-logo {
   height: 50px;
-  background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 800;
-  font-size: 0.9rem;
-  font-family: 'Poppins', sans-serif;
+  width: auto;
+  object-fit: contain;
 }
 
 .brand-text {
@@ -126,9 +118,7 @@
     font-size: 0.6rem;
   }
 
-  .logo-placeholder {
-    width: 40px;
+  .navbar-logo {
     height: 40px;
-    font-size: 0.75rem;
   }
 }

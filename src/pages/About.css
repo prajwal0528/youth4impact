@@ -1,3 +1,44 @@
+/* ─────────────────────────────────────────
+   ANIMATIONS
+───────────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.7s ease both;
+}
+
+.fade-in {
+  animation: fadeIn 0.9s ease 0.3s both;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ─────────────────────────────────────────
+   PAGE HEADER
+───────────────────────────────────────── */
+
 .page-header {
   background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
   padding: 140px 0 80px;
@@ -6,22 +47,25 @@
 .page-header h1 { color: var(--white); font-size: 2.8rem; margin-bottom: 10px; }
 .page-header p { color: rgba(255,255,255,0.8); font-size: 1.1rem; }
 
+/* ─────────────────────────────────────────
+   INTRO
+───────────────────────────────────────── */
+
 .about-intro { display: grid; grid-template-columns: 1.3fr 1fr; gap: 50px; align-items: center; }
 .about-intro-text h2 { color: var(--primary-blue); font-size: 2rem; margin-bottom: 20px; }
 .about-intro-text p { color: var(--text-light); line-height: 1.8; margin-bottom: 15px; }
 
-.about-img-placeholder {
-  background: linear-gradient(135deg, var(--bg-section), #e8f4fd);
+.about-img {
+  width: 100%;
+  height: auto;
   border-radius: var(--radius);
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed rgba(26, 82, 118, 0.2);
+  box-shadow: var(--shadow);
+  display: block;
 }
-.about-img-placeholder span { font-size: 4rem; margin-bottom: 10px; }
-.about-img-placeholder p { color: var(--text-light); font-weight: 500; }
+
+/* ─────────────────────────────────────────
+   REGIONS
+───────────────────────────────────────── */
 
 .regions-section { background: var(--bg-section); }
 .regions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
@@ -31,12 +75,20 @@
 .region-card h3 { color: var(--primary-blue); margin-bottom: 8px; }
 .region-card p { color: var(--text-light); font-size: 0.9rem; }
 
+/* ─────────────────────────────────────────
+   AREAS
+───────────────────────────────────────── */
+
 .areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .area-card { padding: 40px 30px; border-radius: var(--radius); background: var(--white); box-shadow: var(--shadow); text-align: center; transition: var(--transition); border-top: 4px solid transparent; }
 .area-card:hover { transform: translateY(-5px); border-top-color: var(--primary-green); }
 .area-icon { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 18px; }
 .area-card h3 { color: var(--primary-blue); margin-bottom: 12px; }
 .area-card p { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
+
+/* ─────────────────────────────────────────
+   VISION / MISSION
+───────────────────────────────────────── */
 
 .vision-mission-section { background: var(--bg-section); }
 .vm-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
@@ -48,7 +100,10 @@
 .vm-card p { font-size: 1.2rem; font-style: italic; line-height: 1.6; margin-bottom: 15px; }
 .vm-label { font-size: 0.85rem; opacity: 0.7; }
 
-/* ── Trustees ── */
+/* ─────────────────────────────────────────
+   TRUSTEES
+───────────────────────────────────────── */
+
 .trustees-section { background: var(--bg-section); }
 
 .trustees-grid {
@@ -84,7 +139,10 @@
 .trustee-card h4 { color: var(--primary-blue); font-size: 0.95rem; margin-bottom: 5px; }
 .trustee-card p { color: var(--text-light); font-size: 0.8rem; }
 
-/* ── Marketing Team ── */
+/* ─────────────────────────────────────────
+   MARKETING TEAM
+───────────────────────────────────────── */
+
 .marketing-section { background: var(--white); }
 
 .marketing-section .trustees-grid {
@@ -97,7 +155,10 @@
   background: linear-gradient(135deg, var(--primary-green), #1abc9c) !important;
 }
 
-/* ── Responsive ── */
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+
 @media (max-width: 1024px) {
   .trustees-grid { grid-template-columns: repeat(3, 1fr); }
   .marketing-section .trustees-grid { grid-template-columns: repeat(3, 1fr); max-width: 100%; }

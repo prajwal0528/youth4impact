@@ -9,7 +9,11 @@ function Footer() {
         <div className="footer-grid">
           <div className="footer-col">
             <div className="footer-brand">
-              <div className="logo-placeholder-sm">Y4I</div>
+              <img
+                src="https://asset.youth4impact.senoraic.com/logo.png"
+                alt="Youth 4 Impact Trust Logo"
+                className="footer-logo"
+              />
               <h3>Youth 4 Impact Trust</h3>
             </div>
             <p>Empowering youth to create positive social change through education, awareness, and community service.</p>
